@@ -1,0 +1,2 @@
+# study
+Pratcicing phyton programming
