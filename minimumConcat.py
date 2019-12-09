@@ -17,23 +17,28 @@ def minimumConcat(source, target):
         # if we are not using this form we will get a dictionary changed during iteration
         for word in list(dict):
             for i in range(len(word)):
-                newword = word.replace(word[i],"",1)
+                newword = word[:i]+word[i+1:]
                 if newword not in dict:
                     dict[newword]=len(newword)
                     couldaddnewword = True
 
+    dict.pop('')
     print(dict)
 
     replacements=0
     for i in sorted(dict.items(), key=lambda x: (-x[1],x[0])):
-        print(i,i[0])
-        newtgt=target.replace(i[0],"")
-        if not newtgt==target:
+        #print(i,i[0])
+        db=0
+        while i[0] in target:
+            newtarget=target.replace(i[0]," ",1)
             replacements += 1
-            target=newtgt
-            print(target, end=" ")
-        print(target)
+            db += 1
+            target=newtarget
+            print("{} x {} {}->{} ".format(db, i[0], target, newtarget))
+        #print(target)
 
+    #remove all spaces
+    target=target.replace(" ","")
     if( len(target) > 0):
         return -1
     else:
@@ -62,7 +67,7 @@ else:
 print("")
 
 source="abc"
-target="ahbgdc"
+target="abcabcabc"
 #expect true
 rv=minimumConcat(source, target)
 if rv!=-1:
