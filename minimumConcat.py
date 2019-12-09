@@ -8,6 +8,7 @@ def minimumConcat(source, target):
     # if the new word is not in the dict yet we will add it
     # we are finished once no new additions made
 
+
     dict = {source:len(source)}
     couldaddnewword = True
     while couldaddnewword== True:
@@ -40,11 +41,44 @@ def minimumConcat(source, target):
 
 #source = input()
 #target = input()
-source="abcd"
-target="abcbdabcdd"
+#source="abcd"
+#target="abcbdabcdd"
+source="mafla"
+target="almafaalmafaalmafaalmaalmafafafa"
 rv=minimumConcat(source, target)
-
 if rv!=-1:
     print("To create {} from {} we will need {} substrings of {}".format(target,source,rv,source))
 else:
-    print("It is not possible to create {} from {}".format(target,srouce))
+    print("It is not possible to create {} from {}".format(target,source))
+print("")
+
+source="axc"
+target="ahbgdc"
+rv=minimumConcat(source, target)
+if rv!=-1:
+    print("To create {} from {} we will need {} substrings of {}".format(target,source,rv,source))
+else:
+    print("It is not possible to create {} from {}".format(target,source))
+print("")
+
+source="abc"
+target="ahbgdc"
+#expect true
+rv=minimumConcat(source, target)
+if rv!=-1:
+    print("To create {} from {} we will need {} substrings of {}".format(target,source,rv,source))
+else:
+    print("It is not possible to create {} from {}".format(target,source))
+print("")
+
+source="acb"
+target="ahbgdc"
+#expect true
+rv=minimumConcat(source, target)
+if rv!=-1:
+    print("To create {} from {} we will need {} substrings of {}".format(target,source,rv,source))
+else:
+    print("It is not possible to create {} from {}".format(target,source))
+print("")
+
+
