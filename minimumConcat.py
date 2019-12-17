@@ -38,6 +38,7 @@ def minimumConcat(source, target):
         #print(target)
 
     #remove all spaces
+    
     target=target.replace(" ","")
     if( len(target) > 0):
         return -1
