@@ -63,7 +63,7 @@ def minimumConcat(source, target):
             else:
                 j = j + 1
         # print(target)
-    print("v1: Used substings {} Number of different strings: {} Number of replacements:{}".format(summary, len(summary), replacements))
+    print("Used substings {} \nNumber of different substrings: {} \nNumber of replacements:{}".format(summary, len(summary), replacements))
 
     if (len(list1) > 0):
         return -1
