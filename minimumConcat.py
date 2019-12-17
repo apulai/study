@@ -8,6 +8,14 @@ def minimumConcat(source, target):
     # if the new word is not in the dict yet we will add it
     # we are finished once no new additions made
 
+    def flatten(lis):
+        for item in lis:
+            if isinstance(item, Iterable) and not isinstance(item, basestring):
+                for x in flatten(item):
+                    yield x
+            else:
+                yield item
+
 
     dict = {source:len(source)}
     couldaddnewword = True
@@ -23,13 +31,22 @@ def minimumConcat(source, target):
                     couldaddnewword = True
 
     dict.pop('')
+    print("List of substrings (total {}) - substing:substring length".format(len(dict)))
     print(dict)
 
     replacements=0
+    db=0
+
+
+    # remove all spaces
+
+    target = target.replace(" ", "")
+
     for i in sorted(dict.items(), key=lambda x: (-x[1],x[0])):
         #print(i,i[0])
         db=0
         while i[0] in target:
+            print(target.split(i[0]))
             newtarget=target.replace(i[0]," ",1)
             replacements += 1
             db += 1
@@ -38,8 +55,12 @@ def minimumConcat(source, target):
         #print(target)
 
     #remove all spaces
-    
+
     target=target.replace(" ","")
+
+
+
+
     if( len(target) > 0):
         return -1
     else:
