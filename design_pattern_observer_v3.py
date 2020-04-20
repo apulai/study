@@ -10,7 +10,8 @@ class Subscriber:
 # Observable class
 class Publisher:
     # Dictionary comprehension
-    #Minden létrehoz egy dict-et, úgy hogy minden esemény mellé belerak egy üres dict-et
+    #Létrehoz egy dict-et, úgy hogy minden esemény mellé belerak egy üres dict-et
+    # Kik lesznek az előfizetők és mi a callbackjük
     def __init__(self, events):
         self.subscribers = { event: dict()
                           for event in events }
@@ -38,12 +39,11 @@ alice = Subscriber('Alice')
 john= Subscriber('John')
 
 pub.register('lunch',bob)
-pub.register('lunch',alice)
+pub.register('lunch',alice, alice.update)
 pub.register('lunch',john)
 
 pub.register('dinner',bob)
 pub.register('dinner',alice)
-
 
 pub.dispatch('lunch',"It's lunchtime")
 pub.dispatch('dinner',"Dinner is served")
